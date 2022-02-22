@@ -1,0 +1,41 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <button onclick= "location.href='http://127.0.0.1:8000/'" type="button" class="btn btn-secondary">Daily Intake App</button>
+    {% if user.is_authenticated %}
+      <div class="topnav">
+          <a class="http://127.0.0.1:8000/active" href="/">Home</a>
+          <a href="http://127.0.0.1:8000/about">About</a>
+          <a href="http://127.0.0.1:8000/accounts/register">Register</a>
+          <a href="http://127.0.0.1:8000/dashboard">Dashboard</a>
+          <a href="http://127.0.0.1:8000/contact">Contact</a>
+          <a href="http://127.0.0.1:8000/accounts/logout">Log out</a>
+      </div>
+    {% else %}
+      <div class="topnav">
+        <a class="http://127.0.0.1:8000/active" href="/">Home</a>
+        <a href="http://127.0.0.1:8000/about">About</a>
+        <a href="http://127.0.0.1:8000/accounts/register/">Register</a>
+        <a href="http://127.0.0.1:8000/accounts/login/">Login</a> 
+        <a href="http://127.0.0.1:8000/contact">Contact</a>
+      </div>
+    {% endif %}
+  <meta charset="utf-8">
+  <title>{% block title %}HS Tracker{% endblock %}</title>
+</head>
+<body>
+  <main>
+    {% block content %} <!-- This code will be substituted with the code in other HTML files that 
+    you are creating. The rest of the HTML text will stay as it is and will form the base of 
+    all of the HTML files that you are using -->
+    {% endblock %}
+  </main>
+  <footer>
+    <p>Author: Simon Simonovic</p>
+    <p><a href="simsimonbg@gmail.com">simsimonbg@gmail.com</a></p>
+  </footer>
+</body>
+</html>
+

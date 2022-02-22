@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration Page{% endblock %}
+
+{% load crispy_forms_tags %}
+
+<form method="post" class="uniForm">
+    {{ my_formset|crispy }}
+</form>
+
+{% block content %}
+
+{%  if user.is_authenticated %}
+ You are already loged in with the following username: '{{ user.username }}'.
+ If you need to make another registration please first click on the 'logout' buttton in the uppper right corner! Thank you!
+ {% else %}
+ {% load crispy_forms_tags %}
+  <h2>Sign up</h2>
+  <form method="post" class="uniForm">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <button type="submit">Sign Up!!!!!</button>
+  </form>
+
+{% endif %}
+{% endblock %}

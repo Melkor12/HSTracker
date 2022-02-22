@@ -1,0 +1,18 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %} <! comment: .is_authenticated attribute checks if user is authenticated >
+  Hello there, {{ user.username }}!
+  <p>Welcome to the Daily Intake App</p>
+{% else %}
+<br>
+<p>Welcome to the Daily Intake App</p>
+<p>You are not yet logged in!</p>
+  <a href="{% url 'login' %}">Please log in here.</a>
+<br>
+{% endif %}
+
+{% endblock %}
